@@ -10,9 +10,9 @@ const { GraphQLObjectType,
 // mock data
 
 const books = [
-    {name: 'Gone with the Wind', genre: 'Drama', id: '1'},
-    {name: 'Empire Strikes Back', genre: 'Fantasy', id: '2'},
-    {name: 'Everything there is to know about India', genre: 'Travel', id: '3'}
+    {name: 'The Old Man and the Sea', genre: 'Fiction', id: '1', authorId: '1'},
+    {name: 'Adventures of Huckleberry Finn', genre: 'Fiction', id: '2', authorId: '2'},
+    {name: 'The Stand', genre: 'Fiction', id: '3', authorId: '3'}
 ];
 
 const authors = [
@@ -26,11 +26,18 @@ const BookType = new GraphQLObjectType({
     fields: () => ({
         id: {type: GraphQLID},
         name: {type: GraphQLString},
-        genre: {type: GraphQLString}
+        genre: {type: GraphQLString},
+        author: {
+            type: AuthorType,
+            resolve(parent, args) {
+                console.log(parent);
+                return _.find(authors, {id: parent.authorId});
+            }
+        }
     })
 });
 
-const Author = new GraphQLObjectType({
+const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: () => ({
         id: {type: GraphQLID},
@@ -52,7 +59,7 @@ const RootQuery = new GraphQLObjectType({
             }
         },
         author: {
-            type: Author,
+            type: AuthorType,
             args: {id: {type: GraphQLID}},
             resolve(parent, args) {
                 // code to retrieve data from MongoDB
