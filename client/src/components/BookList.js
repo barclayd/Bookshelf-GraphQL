@@ -1,6 +1,7 @@
-import React, {Component} from "react";
+import React from "react";
 import {gql} from 'apollo-boost';
 import {graphql} from 'react-apollo';
+import Spinner from './UI/Spinner/Spinner';
 
 const getBooksQuery = gql`
     {
@@ -11,18 +12,28 @@ const getBooksQuery = gql`
     }
 `;
 
-class BookList extends Component {
+const BookList = props => {
 
-    render () {
-        console.log(this.props);
+    const displayBooks = () => {
+        const data = props.data;
+        if(data.loading){
+            return <Spinner/>
+        } else {
+            return data.books.map((book) => {
+                return (<li key={book.id}>{book.name}</li>
+                );
+            });
+        }
+    };
+
+    console.log(props.data);
         return (
             <React.Fragment>
                 <ul id='book-list'>
-                    <li>Book Name</li>
+                    {displayBooks()}
                 </ul>
             </React.Fragment>
         )
-    }
-}
+};
 
 export default graphql(getBooksQuery)(BookList);
