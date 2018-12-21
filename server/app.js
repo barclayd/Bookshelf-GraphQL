@@ -3,6 +3,9 @@ const graphqlHTTP = require('express-graphql');
 const app = express();
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+app.use(cors());
 
 mongoose.connect('mongodb://testing:testing1@ds159024.mlab.com:59024/graphql-books', {useNewUrlParser: true});
 mongoose.connection.once('open', () => {
