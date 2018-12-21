@@ -1,7 +1,7 @@
 import React from "react";
 import {gql} from 'apollo-boost';
 import {graphql} from 'react-apollo';
-import Spinner from './UI/Spinner/Spinner';
+import Spinner from '../UI/Spinner/Spinner';
 
 const getBooksQuery = gql`
     {
