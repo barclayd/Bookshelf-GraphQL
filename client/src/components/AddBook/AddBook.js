@@ -45,7 +45,7 @@ class AddBook extends Component {
                 return <option disabled>Loading authors...</option>
             } else {
                 return data.authors.map(author => (
-                    <option key={author.id} value={author.id}>{author.name}</option>
+                    <option style={{color: '#966c51'}} key={author.id} value={author.id}>{author.name}</option>
                 ));
             }
         };
@@ -71,7 +71,7 @@ class AddBook extends Component {
                         </select>
                     </div>
 
-                    <button type='button' onClick={this.onFormSubmitHandler}>+</button>
+                    <button type='button' onClick={this.onFormSubmitHandler}>✓</button>
 
                 </form>
             </React.Fragment>
