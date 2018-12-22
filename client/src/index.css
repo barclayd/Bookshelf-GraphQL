@@ -2,3 +2,92 @@ body {
   background: #eee;
   font-family: 'Gentium Book Basic', serif;
 }
+
+#main h1{
+   color: #966c51;
+   text-align: center;
+ }
+
+#main h2{
+  text-align: center;
+}
+
+#main {
+  padding: 0;
+  box-sizing: border-box;
+  width: 60%;
+}
+
+#book-list {
+  padding: 0;
+  overflow: auto;
+}
+
+#book-list li {
+  display: inline-block;
+  margin: 12px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #1352cc;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  color: #1d398f;
+}
+
+form {
+  background: #fff;
+  position: fixed;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+  width: 400px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+form .field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  color: #966c51;
+}
+
+form label {
+  text-align: right;
+  padding: 6px;
+}
+
+form select, form input {
+  margin: 4px;
+  padding: 6px;
+  box-sizing: border-box;
+  color: #966c51;
+}
+
+form button {
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  background: #1352cc;
+  border: 0;
+  padding: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+#details {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: #1352cc;
+  color: #fff;
+  padding: 30px;
+  overflow: auto;
+  box-shadow: -2px -3px 5px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+}

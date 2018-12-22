@@ -12,9 +12,9 @@ const BookDetails = props => {
             if(book) {
                 return (
                     <React.Fragment>
-                        <h3>{book.name}</h3>
-                        <h3>{book.genre}</h3>
-                        <h3>{book.author.name}</h3>
+                        <h2>{book.name}</h2>
+                        <h4>{book.genre}</h4>
+                        <h4>{book.author.name}</h4>
                         <p><i>More books by this author:</i></p>
                         {book.author.books.map(authBook => {
                             return <ul key={authBook.id} className='other-books'>
@@ -29,7 +29,6 @@ const BookDetails = props => {
 
     return (
         <div id="details">
-           <p>Output book details here...</p>
             {props.data.loading ? <Spinner /> : props.id ? displayBookdetails() : <i>No book selected</i>}
         </div>
     )
